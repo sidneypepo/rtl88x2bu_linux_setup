@@ -19,7 +19,7 @@ chmod +x setup_rtl88x2bu.sh
 
 ## Installation preview
 
-<img src="https://gitlab.com/sidneypepo/rtl88x2bu_linux_setup/-/raw/master/img/script_running.png" width="800"/>
+<img src="https://gitlab.com/sidneypepo/rtl88x2bu_linux_setup/-/raw/master/img/script_running.png" width="800"/></br>
 <center>Here's a preview of how simple this is and works</center>
 
 ---
