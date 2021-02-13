@@ -5,9 +5,9 @@ This is a simple setup coded in Shell Script to install RTL88x2BU driver in your
 <img src="https://gitlab.com/sidneypepo/rtl88x2bu_linux_setup/-/raw/master/img/rtl_usb_dongle.jpg" width="500"/>
 
 ## How to install
-Installation process is pretty simple. You just need to run `setup_rtl88x2bu.sh` as Super-User as shown below:
+Installation process is pretty simple. You just need to run `setup_rtl88x2bu.sh` as shown below:
 ```sh
-sudo ./setup_rtl88x2bu.sh
+./setup_rtl88x2bu.sh
 ```
 
 > NOTE: If this file cannot run, try give it permitions with chmod:
