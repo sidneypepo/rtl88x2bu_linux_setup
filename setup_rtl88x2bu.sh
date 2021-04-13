@@ -43,8 +43,6 @@ else
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 # Checking if make is installed
 echo -e "\e[1;33m[*] Checking if make is installed...\e[0m"
@@ -72,8 +70,6 @@ else
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 # Checking if lsusb is installed
 echo -e "\e[1;33m[*] Checking if lsusb is installed...\e[0m"
@@ -99,8 +95,6 @@ else
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 # Checking if bc is installed
 echo -e "\e[1;33m[*] Checking if bc is installed...\e[0m"
@@ -127,8 +121,6 @@ if [ -x "$(command -v bc)" ]; then
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 # Checking if network-manager is installed
 echo -e "\e[1;33m[*] Checking if network-manager is installed...\e[0m"
@@ -155,8 +147,6 @@ else
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 # Checking if RTL88x2BU driver is downloaded
 echo -e "\e[1;33m[*] Checking if RTL88x2BU driver is downloaded...\e[0m"
@@ -184,13 +174,11 @@ else
 fi
 
 sleep 1
-echo -e "\e[1;34m[i] Press [ENTER] to continue.\e[0m"
-read enter > /dev/null
 
 echo -e "\e[1;37m==========> INSTALLING DRIVER <==========\e[0m\n"
 
 echo -e -n "\e[1;34m[i] Please, plug your RTL88x2BU in any USB port. After do that, press [ENTER] to continue.\e[0m\n"
-read enter > /dev/null
+read
 
 # Listing USB devices
 check_devices() {
@@ -204,7 +192,7 @@ check_devices() {
 		y|Y|yes|YES) ;;
 		n|N|no|NO) echo -e "\n\e[1;34m[i] Please, try plug your RTL88x2BU in another USB port. After do that, press [ENTER] to continue.\e[0m"
 			sleep 1
-			read enter > /dev/null
+			read
 			check_devices;;
 		*) echo -e "\e[1;31m[!] '$yn' is an invalid option!\e[0m\n"
 			check_devices;;
@@ -217,7 +205,7 @@ check_devices
 
 # Building RTL88x2BU driver
 echo -e "\n\e[1;34m[i] Press [ENTER] to start installation. NOTE: This can take several minutes!\e[0m"
-read enter > /dev/null
+read
 cd $driver
 sudo make > /dev/null &
 PID=$!
@@ -247,7 +235,7 @@ cd - > /dev/null
 
 # Starting RTL88x2BU driver and restarting network-manager
 echo -e "\n\e[1;34m[i] Press [ENTER] to activate your RTL88x2BU. NOTE: Your network connection will be restarted and this can take some seconds!"
-read enter > /dev/null
+read
 sudo modprobe 88x2bu
 if [ -d "/etc/network-manager" ]; then
 	sudo service network-manager restart
@@ -257,22 +245,20 @@ else
 
 fi
 
+sleep 5
+echo -e "\e[1;34m[i] Setup completed successfully!\e[0m"
 sleep 1
-echo -e "\e[1;34m[i] Setup completed successfully! Press [ENTER] exit setup.\e[0m"
-read enter > /dev/null
 
 # Driver developers credits
 echo -e "\n\e[1;37m==========> SUPPORT DRIVER CREATORS!!!!!! <==========\e[0m\n"
 
 echo -e "\e[1;31m[❤️]\e[1;37m Please, \e[1;36mcontribute\e[1;37m, send so much \e[1;31mlove <3\e[1;37m and \e[1;32msupport\e[1;37m \e[1;34mRin Cat\e[1;37m and \e[1;34mMatin Lotfaliee\e[1;37m (RTL88x2BU driver developers)!!!!\e[0m\n"
 
-echo -e "\e[1;37;44m ·Driver project repo ---------> https://github.com/RinCat/RTL88x2BU-Linux-Driver "
-echo -e "\e[1;37;44m ·Rin Cat GitHub page ---------> https://github.com/RinCat                        "
-echo -e "\e[1;37;44m ·Matin Lotfaliee GitHub page -> https://github.com/matinlotfali                  "
+echo -e "\e[1;37;44m ·Driver project repo ---------> https://github.com/RinCat/RTL88x2BU-Linux-Driver \e[0m"
+echo -e "\e[1;37;44m ·Rin Cat GitHub page ---------> https://github.com/RinCat                        \e[0m"
+echo -e "\e[1;37;44m ·Matin Lotfaliee GitHub page -> https://github.com/matinlotfali                  \e[0m"
 echo -e "\e[0m"
 
 sleep 2
-
-#fi
 
 #End of script :p
